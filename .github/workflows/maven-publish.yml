@@ -35,9 +35,6 @@ jobs:
       packages: write
 
     steps:
-
-  - name: Set jdk.jar.maxSignatureFileSize property
-    run: echo "jdk.jar.maxSignatureFileSize=30000000" >> $GITHUB_PATH
     
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -54,3 +51,6 @@ jobs:
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
+        
+    - name: Set jdk.jar.maxSignatureFileSize property
+      run: echo "jdk.jar.maxSignatureFileSize=30000000" >> $GITHUB_PATH
