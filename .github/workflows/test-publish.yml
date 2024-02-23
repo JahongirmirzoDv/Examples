@@ -44,7 +44,7 @@ jobs:
 
       - name: Build with Maven
         # Ensure the `pom.xml` file is in the correct location
-        run: mvn -B package -f ${{ github.workspace }}/pom.xml
+        run: mvn -B package -f ${{ github.workspace }}/Examples/Examples/pom.xml
 
       - name: Publish to GitHub Packages
         uses: actions/checkout@v2
