@@ -23,10 +23,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up JDK
-        uses: actions/setup-java@v3
+      - uses: actions/checkout@v3
+      - name: Set jdk.jar.maxSignatureFileSize property
+        run: echo "jdk.jar.maxSignatureFileSize=30000000" >> $GITHUB_PATH
+      - name: Set up JDK 11
         with:
-          java-version: 17
+          java-version: '11'
+          distribution: 'temurin'
+          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+          settings-path: ${{ github.workspace }} # location for the settings.xml file
 
       - name: Cache Maven packages
         uses: actions/cache@v3
