@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v3
         # Double-check the directory path for your project
         with:
-          path: '/home/runner/work/YOUR_PROJECT_DIR'
+          path: '/home/runner/work/Examples/Examples'
 
       - name: Set up JDK
         uses: actions/setup-java@v3
