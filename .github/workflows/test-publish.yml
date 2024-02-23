@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v3
         # Double-check the directory path for your project
         with:
-          path: '/home/runner/work/Examples'
+          path: '/home/runner/work/Examples/Examples'
 
       - name: Set up JDK
         uses: actions/setup-java@v3
@@ -44,7 +44,7 @@ jobs:
 
       - name: Build with Maven
         # Ensure the `pom.xml` file is in the correct location
-        run: mvn -B package -f ${{ github.workspace }}/Examples/pom.xml
+        run: mvn -B package -f ${{ github.workspace }}/com/groupdocs/viewer/examples/pom.xml
 
       - name: Publish to GitHub Packages
         uses: actions/checkout@v2
