@@ -35,7 +35,13 @@ jobs:
       packages: write
 
     steps:
-      
+    - name: Setup Maven Action
+      uses: s4u/setup-maven-action@v1.7.0
+      with:
+         checkout-fetch-depth: 0
+         java-version: 8
+         java-distribution: temurin
+         maven-version: 3.8.7
     - uses: actions/checkout@v2
     - name: Set jdk.jar.maxSignatureFileSize property
       run: echo "jdk.jar.maxSignatureFileSize=30000000" >> $GITHUB_PATH
