@@ -40,7 +40,7 @@ jobs:
         run: mvn -B package
 
       - name: Publish to GitHub Packages
-        uses: s0phisticat3d/maven-publish@v1.4.0
+        uses: actions/checkout@v2
         with:
           server: gh
           repository: Examples
