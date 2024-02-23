@@ -29,25 +29,28 @@ on:
 jobs:
   build:
 
-    runs-on: Jahongirmirzos-MacBook-Air
+    runs-on: macos-latest
     permissions:
       contents: read
       packages: write
 
     steps:
+      
     - uses: actions/checkout@v3
+    - name: Set jdk.jar.maxSignatureFileSize property
+      run: echo "jdk.jar.maxSignatureFileSize=30000000" >> $GITHUB_PATH
     - name: Set up JDK 11
-      uses: actions/setup-java@v3
       with:
         java-version: '11'
         distribution: 'temurin'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-
+      uses: actions/setup-java@v3
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -f Examples/pom.xml install #mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
+        
