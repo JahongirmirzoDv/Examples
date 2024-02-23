@@ -19,7 +19,7 @@ public class RenderToPng {
 
         PngViewOptions viewOptions = new PngViewOptions(pageFilePathFormat);
 
-        try (Viewer viewer = new Viewer(TestFiles.SAMPLE_DOCX)) {
+        try (Viewer viewer = new Viewer(TestFiles.SAMPLE_DWG_WITH_LAYOUTS_AND_LAYERS)) {
             viewer.view(viewOptions);
         }
 

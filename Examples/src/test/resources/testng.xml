@@ -4,8 +4,6 @@
         <packages>
             <package name="com.groupdocs.viewer.examples.*"/>
         </packages>
-        <classes>
-            <class name="com.groupdocs.viewer.examples.TestsSetUp"/>
-        </classes>
+
     </test>
 </suite>

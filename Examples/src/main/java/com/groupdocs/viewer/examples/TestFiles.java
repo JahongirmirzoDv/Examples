@@ -10,7 +10,7 @@ public class TestFiles {
     public static final String SAMPLE_RAR_WITH_FOLDERS = getSampleFilePath("with_folders.rar");
 
     // CAD drawings
-    public static final String SAMPLE_DWG_WITH_LAYOUTS_AND_LAYERS = getSampleFilePath("with_layers_and_layouts.dwg");
+    public static final String SAMPLE_DWG_WITH_LAYOUTS_AND_LAYERS = getSampleFilePath("a1.dxf");
     public static final String SAMPLE_PLT = getSampleFilePath("sample.plt");
     public static final String SAMPLE_AI = getSampleFilePath("sample.ai");
     public static final String SAMPLE_CF2 = getSampleFilePath("sample.cf2");
