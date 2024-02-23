@@ -35,14 +35,8 @@ jobs:
       packages: write
 
     steps:
-    - name: Setup Maven Action
-      uses: s4u/setup-maven-action@v1.7.0
-      with:
-         checkout-fetch-depth: 0
-         java-version: 8
-         java-distribution: temurin
-         maven-version: 3.8.7
-    - uses: actions/checkout@v2
+
+    - uses: actions/checkout@v3
     - name: Set jdk.jar.maxSignatureFileSize property
       run: echo "jdk.jar.maxSignatureFileSize=30000000" >> $GITHUB_PATH
     - name: Set up JDK 11
@@ -53,8 +47,8 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
       uses: actions/setup-java@v3
     - name: Build with Maven
-      run: mvn -B package --file pom.xml #mvn -f /Users/runner/work/Examples/Examples/pom.xml install
-
+      run: mvn -B package Example:Example --file pom.xml -Daem.analyser.strict=true #mvn -f /Users/runner/work/Examples/Examples/pom.xml install
+      
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
