@@ -43,8 +43,8 @@ jobs:
         uses: s0phisticat3d/maven-publish@v1.4.0
         with:
           server: gh
-          repository: your-repo-name
+          repository: Examples
           token: ${{ secrets.GITHUB_TOKEN }}
-          group: your-group-id
-          artifact: your-artifact-id
+          group: com.groupdocs.ui.viewer.dropwizard
+          artifact: viewer-dropwizard
           version: ${{ github.sha }}
