@@ -22,6 +22,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v3
+        # Double-check the directory path for your project
+        with:
+          path: '/home/runner/work/YOUR_PROJECT_DIR'
 
       - name: Set up JDK
         uses: actions/setup-java@v3
@@ -40,7 +43,8 @@ jobs:
             ${{ runner.os }}-m2-
 
       - name: Build with Maven
-        run: mvn -B package
+        # Ensure the `pom.xml` file is in the correct location
+        run: mvn -B package -f ${{ github.workspace }}/pom.xml
 
       - name: Publish to GitHub Packages
         uses: actions/checkout@v2
