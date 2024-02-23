@@ -45,7 +45,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
       uses: actions/setup-java@v3
     - name: Build with Maven
-      run: mvn -f Examples/pom.xml #mvn -B package --file pom.xml
+      run: mvn -f Examples/pom.xml install #mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
