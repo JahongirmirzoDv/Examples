@@ -29,7 +29,7 @@ on:
 jobs:
   build:
 
-    runs-on: Jahongirmirzos-MacBook-Air
+    runs-on: macos-latest
     permissions:
       contents: read
       packages: write
